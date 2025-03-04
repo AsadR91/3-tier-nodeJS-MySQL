@@ -41,11 +41,74 @@ sudo apt update
 Install MySQL Server:
 
 sudo apt install mysql-server
-Configure Root Password (MySQL 8+):
 
+You can connect to the sql for the first time using, it shouldn't ask for the password. 
+
+sudo mysql -u root
+
+Configure Root Password (MySQL 8+):
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 FLUSH PRIVILEGES;
+
 Create Database:
 
 CREATE DATABASE test_db;
+
+MySQL Database and Table Setup
+View Existing Databases:
+
+sql
+SHOW DATABASES;
+Access the "test_db" Database:
+
+sql
+USE test_db;
+Create the "users" Table:
+
+sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    role ENUM('Admin', 'User') NOT NULL
+);
+Exit MySQL client.
+
+Application Setup and Deployment
+
+Configure Client:
+
+cd client
+npm install
+npm run build
+
+
+Configure Server:
+
+cd ../server
+npm install
+npm start
+The application should now be accessible at http://localhost:5000 (replace "localhost" with your server's IP address if necessary).
+
+Data Verification
+After entering data through the application UI:
+
+Access MySQL:
+
+mysql -u [username] -p
+View and Select Database:
+
+SHOW DATABASES;
+USE test_db;
+Verify Data Entry:
+
+
+SELECT * FROM users;
+
+This query should display the data entered via the application interface.
+
+
+
+
+
