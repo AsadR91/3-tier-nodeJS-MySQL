@@ -17,7 +17,7 @@ NodeJS Configuration:
 
 Install NVM (Node Version Manager):
 
-bash
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 Important: After running the above command, copy and execute the environment variable commands provided in the output to properly initialize NVM in your shell. These commands will typically resemble the following:
@@ -30,14 +30,15 @@ Install NodeJS (Version 22):
 
 
 nvm install 22
+
 MySQL Server Setup:
 
 Update Package Repository:
 
 
 sudo apt update
-Install MySQL Server:
 
+Install MySQL Server:
 
 sudo apt install mysql-server
 Configure Root Password (MySQL 8+):
